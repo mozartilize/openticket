@@ -1,0 +1,13 @@
+{
+  "name": "openticket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node esbuild.config.mjs"
+  },
+  "dependencies": {
+    "esbuild": "^0.21.3",
+    "htmx.org": "^1.9.12"
+  }
+}

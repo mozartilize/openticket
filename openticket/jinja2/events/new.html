@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>New Event - OpenTicket</title>
+</head>
+
+<body>
+<form method="post">
+{{ csrf_input }}
+<div><label for="name">Name:</label><input type="text" name="name"/></div>
+<div><label for="ticket_quantity">Ticket quantity:</label><input type="text" name="ticket_quantity"/></div>
+<div><label for="start">Start:</label><input type="datetime-local" name="start"/></div>
+<div><label for="end">End:</label><input type="datetime-local" name="end"/></div>
+<input type="submit" value="Create"/>
+</form>
+<script type="text/javascript" src="{{ static('js/home/index.js') }}"></script>
+</body>
+</html>
