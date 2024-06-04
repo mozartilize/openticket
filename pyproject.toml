@@ -6,12 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "openticket"
 version = "0.1.0"
 dependencies = [
-	"django",
+	"django>=4.2,<4.3",
 	"gunicorn",
-	"pydantic",
+	"pydantic>=2.7,<2.8",
 	"click",
 	"toml",
 	"django_extensions",
+	"jinja2>=3.1,<3.2",
 ]
 
 [tool.setuptools]
@@ -22,7 +23,6 @@ dev = ["django-types", "black"]
 
 [tool.pyright]
 exclude                = ["**/node_modules", "**/__pycache__"]
-include                = ["src"]
 typeCheckingMode = "strict"
 reportMissingImports   = true
 reportMissingTypeStubs = true
@@ -38,7 +38,9 @@ reportMissingTypeArgument = true
 reportImportCycles = true
 
 pythonPlatform = "Linux"
-pythonVersion  = "^3.8"
+pythonVersion  = "3.8"
+venvPath = "."
+venv = ".venv"
 
 [project.scripts]
 openticket= "openticket.manage:main"

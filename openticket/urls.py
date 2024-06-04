@@ -15,14 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-# from django.contrib import admin
+from django.contrib import admin
 from django.urls import path
 from openticket.views import index, event_index, event_form
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', index),
-    path('events/', event_index),
+    path('events/', event_index, name="event_index"),
     path('events/new/', event_form),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

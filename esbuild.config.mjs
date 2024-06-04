@@ -18,13 +18,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 let result = await esbuild.build({
-  absWorkingDir: path.join(__dirname, 'assets'),
-  nodePaths: ['js'],
+  absWorkingDir: path.join(__dirname, 'frontend'),
+  nodePaths: ['.'],
   entryPoints: [
-    'js/home/index.js',
-    'js/settings/settings.js'
+    'home/index.js',
+    'settings/index.js'
   ],
-  entryNames: `[dir]/[name]-${hash}`,
+  entryNames: `[ext]/[dir]/[name]-${hash}`,
   bundle: true,
   // minify: true,
   sourcemap: true,
@@ -33,10 +33,10 @@ let result = await esbuild.build({
   outdir: '../static',
   metafile: true,
   // splitting: true,
-  // chunkNames: `chunkNames/[name]-${hash}`,
+  // chunkNames: `[ext]/[name]-${hash}`,
   // format: 'esm',
 });
 
 result.metafile.hash = hash;
 
-fs.writeFileSync('meta.json', JSON.stringify(result.metafile, null, 2));
+fs.writeFileSync('static/meta.json', JSON.stringify(result.metafile, null, 2));

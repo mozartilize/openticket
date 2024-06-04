@@ -3,5 +3,7 @@ pycache/
 node_modules/
 __pycache__/
 
+static/
+
 *.sqlite3
 *.egg-info/

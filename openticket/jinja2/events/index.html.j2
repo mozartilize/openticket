@@ -8,5 +8,14 @@
 <a href="/events/new">
     New Event
 </a>
+
+<h1>Events</h1>
+
+<ul>
+{% for event in events %}
+<li>{{ event.name }}</li>
+{% endfor %}
+</ul>
+
 </body>
 </html>
