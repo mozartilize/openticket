@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "node esbuild.config.mjs"
+    "build": "rm -rf static; node esbuild.config.mjs"
   },
   "dependencies": {
     "esbuild": "^0.21.3",

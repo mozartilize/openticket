@@ -10,12 +10,28 @@
 </a>
 
 <h1>Events</h1>
-
-<ul>
-{% for event in events %}
-<li>{{ event.name }}</li>
-{% endfor %}
-</ul>
-
+<div>
+<p>Filter</p>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Available</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+        <tr>
+            <td>{{ event.name }}</td>
+            <td>{{ event.start_date }}</td>
+            <td>{{ event.end_date }}</td>
+            <td>{{ event.number_of_tickets }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
 </body>
 </html>
