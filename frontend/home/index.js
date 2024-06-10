@@ -1,3 +1,5 @@
+import './index.scss'
+
 import 'htmx.org';
 
 import {add} from 'lib/math'

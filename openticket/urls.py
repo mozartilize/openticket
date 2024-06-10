@@ -25,4 +25,4 @@ urlpatterns = [
     path('', index),
     path('events/', event_index, name="event_index"),
     path('events/new/', event_form),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root='static/')

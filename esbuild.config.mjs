@@ -1,8 +1,10 @@
-import * as esbuild from 'esbuild';
 import fs from 'node:fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import crypto from 'crypto';
+
+import * as esbuild from 'esbuild';
+import {sassPlugin} from 'esbuild-sass-plugin'
 
 function simpleHash(str) {
   let hash = 0
@@ -23,6 +25,11 @@ let result = await esbuild.build({
   entryPoints: [
     'home/index.js',
     'settings/index.js'
+  ],
+  plugins: [
+    sassPlugin({
+      cssImports: true,
+    }),
   ],
   entryNames: `[ext]/[dir]/[name]-${hash}`,
   bundle: true,
