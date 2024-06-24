@@ -1,15 +1,10 @@
-// Functions first
-@import "../node_modules/bootstrap/scss/functions";
+@import "../base";
 
-// Required Bootstrap imports
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/variables-dark";
-@import "../node_modules/bootstrap/scss/maps";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/root";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/tables";
 
-// Optional components
-@import "../node_modules/bootstrap/scss/containers";
-@import "../node_modules/bootstrap/scss/grid";
-@import "../node_modules/bootstrap/scss/tables";
-@import "../node_modules/bootstrap/scss/forms";
+#event-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

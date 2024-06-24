@@ -7,61 +7,60 @@
 
 <body>
 <div class="container">
-    <h1>Events</h1>
-    <a href="/events/new">
-        New Event
-    </a>
     <div>
-        <div>
-            <p>Filter</p>
-            <form class="">
-                <div class="row">
-                    {# {{ events_filter.name.errors }} #}
-                    {{ events_filter.name.label_tag() }}
-                    {{ events_filter.name }}
-                </div>
-                <div class="row">
-                    {# {{ events_filter.start_date.errors }} #}
-                    {{ events_filter.start_date.label_tag() }}
-                    {{ events_filter.start_date }}
-                </div>
-                <div class="row">
-                    {# {{ events_filter.page.errors }} #}
-                    {{ events_filter.page.label_tag() }}
-                    {{ events_filter.page }}
-                </div>
-                <div class="row">
-                    {# {{ events_filter.order_by.errors }} #}
-                    {{ events_filter.order_by.label_tag() }}
-                    {{ events_filter.order_by }}
-                </div>
-                {# {{ events_filter }} #}
-                <div>
-                    <input type="Submit" value="Submit"/>
-                </div>
-            </form>
-        </div>
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>Available</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for event in events %}
-                <tr>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.start_date }}</td>
-                    <td>{{ event.end_date }}</td>
-                    <td>{{ event.number_of_tickets }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h1>Events</h1>
     </div>
+    <div>
+        <a href="/events/new">
+            New Event
+        </a>
+    </div>
+    <div>
+        <p>Filter</p>
+        <form class="">
+            <div class="">
+                {{ events_filter.name.label_tag() }}
+                {{ events_filter.name }}
+            </div>
+            <div class="">
+                {{ events_filter.start_date.label_tag() }}
+                {{ events_filter.start_date }}
+            </div>
+            <div class="">
+                {{ events_filter.page.label_tag() }}
+                {{ events_filter.page }}
+            </div>
+            <div class="">
+                {{ events_filter.order_by.label_tag() }}
+                {{ events_filter.order_by }}
+            </div>
+            <div>
+                <input type="Submit" value="Submit"/>
+            </div>
+        </form>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Available</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.name }}</td>
+                <td>{{ event.start_date }}</td>
+                <td>{{ event.end_date }}</td>
+                <td>{{ event.avail_total}}/{{ event.number_of_tickets }}</td>
+                <td><a class="btn btn-sm btn-secondary" href="/events/?id={{ event.id }}">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 <script type="text/javascript" src="{{ static('js/home/index-'+static_hash+'.js') }}"></script>
 </body>

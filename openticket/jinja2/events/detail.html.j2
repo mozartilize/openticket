@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Events - OpenTicket</title>
+    <link rel="stylesheet" href="{{ static('css/home/index-' + static_hash + '.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Event Detail</h1>
+        <a href="/events/"> All Events </a>
+        {% if event %}
+        <div id="event-detail">
+            <div>
+                <button class="btn btn-secondary" hx-get="/htmx/events/?id={{ event.id }}" hx-swap="innerHTML" hx-target="#event-detail">
+                Edit
+                </button>
+            </div>
+            <div>
+                <label>Name:</label>
+                {{ event.name }}
+            </div>
+            <div>
+                <label>Start date:</label>
+                {{ event.start_date }}
+            </div>
+            <div>
+                <label>End date:</label>
+                {{ event.end_date }}
+            </div>
+            <div>
+                <label>Number of tickets:</label>
+                {{ event.number_of_tickets }}
+            </div>
+        </div>
+        {% else %}
+        <p>No event match</p>
+        {% endif %}
+    </div>
+    <script type="text/javascript" src="{{ static('js/home/detail-' + static_hash + '.js') }}"></script>
+</body>
+
+</html>

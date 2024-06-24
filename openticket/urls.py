@@ -17,12 +17,13 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from openticket.views import index, event_index, event_form
+from openticket.event_views import index, EventView, EventHtmxView, event_form
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index),
-    path('events/', event_index, name="event_index"),
-    path('events/new/', event_form),
-] + static(settings.STATIC_URL, document_root='static/')
+    path("admin/", admin.site.urls),
+    path("", index),
+    path("htmx/events/", EventHtmxView.as_view(), name="htmx_events"),
+    path("events/", EventView.as_view(), name="events"),
+    path("events/new/", event_form),
+] + static(settings.STATIC_URL, document_root="static/")

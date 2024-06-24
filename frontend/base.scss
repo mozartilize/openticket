@@ -1,0 +1,30 @@
+// // Functions first
+@import "bootstrap/scss/functions";
+
+// // Required Bootstrap imports
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+
+body {
+    width: 60%;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}

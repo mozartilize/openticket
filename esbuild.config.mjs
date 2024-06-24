@@ -24,6 +24,7 @@ let result = await esbuild.build({
   nodePaths: ['.'],
   entryPoints: [
     'home/index.js',
+    'home/detail.js',
     'settings/index.js'
   ],
   plugins: [
@@ -47,3 +48,5 @@ let result = await esbuild.build({
 result.metafile.hash = hash;
 
 fs.writeFileSync('static/meta.json', JSON.stringify(result.metafile, null, 2));
+// trigger backend server for reload the hash meta
+fs.utimesSync('openticket/__init__.py', new Date(), new Date());
