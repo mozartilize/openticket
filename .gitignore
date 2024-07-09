@@ -1,4 +1,5 @@
 .venv/
+.pixi/
 pycache/
 node_modules/
 __pycache__/
